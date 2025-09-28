@@ -121,6 +121,18 @@ const config: HardhatUserConfig = {
       chainId: 177,
       accounts: [PRIVATE_KEY],
       deploy: ["./deploy/hashkey/"],
+    },
+    sonic: {
+      url: "https://sonic.drpc.org",
+      chainId: 146,
+      accounts: [PRIVATE_KEY],
+      deploy: ["./deploy/sonic/"],
+    },
+    plume: {
+      url: "https://plume.drpc.org",
+      chainId: 161,
+      accounts: [PRIVATE_KEY],
+      deploy: ["./deploy/plume/"],
     }
   },
   namedAccounts: {
@@ -159,6 +171,8 @@ const config: HardhatUserConfig = {
       dodoTestnet: 'fakekey',
       arbsepolia: process.env.ARBITRUM_API_KEY ?? '',
       hashkey: 'empty',
+      sonic: process.env.SONIC_API_KEY ?? '',
+      plume: process.env.PLUME_API_KEY ?? '',
     },
     customChains: [
       {
@@ -216,6 +230,22 @@ const config: HardhatUserConfig = {
           apiURL: "https://hashkey.blockscout.com/api",
           browserURL: "https://hashkey.blockscout.com",
         },
+      },
+      {
+        network: "sonic",
+        chainId: 146,
+        urls: {
+          apiURL: "https://api.sonicscan.org/api",
+          browserURL: "https://sonicscan.org/"
+        }
+      },
+      {
+        network: "plume",
+        chainId: 161,
+        urls: {
+          apiURL: "https://api.plumescan.org/api",
+          browserURL: "https://plumescan.org/"
+        }
       },
     ]
   },
